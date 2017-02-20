@@ -1,0 +1,38 @@
+1/ Make folder with name: <package>-<version>, EX: edisonnet-1.0.0
+
+2/ Inside package:
+    - Make folder <package> to contain code, EX: edisonnet
+    - Make setup.py, to configure dependency, name, version, …
+    - Make MANIFEST.IN
+    - Make other script if want to do other configure
+
+3/ Distribution server configuration
+    - Create file at ‘/home/root/.pypirc’
+    - Enter:
+	[distutils]
+	index-servers = pypi
+
+	[pypi]
+	repository: https://pypi.python.org/pypi
+	username: cxphong
+	password: caoxuanphong20061991
+
+4/ Generate egg-info
+    python setup.py develop
+
+5/ Register
+    python setup.py register  -r https://pypi.python.org/pypi
+
+6/ Upload
+    python setup.py sdist upload  -r https://pypi.python.org/pypi
+
+7/ Install 
+    pip install <package>
+    pip install --upgrade --no-deps --force-reinstall <package> => force install
+
+8/ Remove 
+    pip uninstall <package>
+
+
+
+

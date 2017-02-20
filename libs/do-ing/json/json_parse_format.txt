@@ -1,0 +1,41 @@
+// Android configure
+{
+	mode: “AP”,
+	ap_name: “edision-abc”,
+	ap_password: “edision-abc”
+}
+
+{
+	mode: “DHCP”,
+	ssid_name: “Fiot-01”,
+	ssid_password: “passnhucu”,
+	ssid_security: “WPA_PSK”,
+	ssid_identity: “”
+}
+
+{
+	mode: “STATIC”,
+	ip: “10.10.10.100”,
+	netmask: “255.255.255.0”,
+	gateway: “10.10.10.1” ,
+	dns1: “8.8.8.8”,
+	dns2: “8.8.4.4”
+}
+
+// Server return
+
+{
+	mode: “AP”
+	ssid: “Edision”,
+	mac: “15:12”
+}
+
+
+{
+	mode: “CLIENT”,
+	ip: “10.10.10.1”,
+	net mask: “255.255.255.0”,
+	gateway: “10.10.10.1”,
+	ssid: “FioT-01”
+}
+
