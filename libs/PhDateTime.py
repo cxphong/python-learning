@@ -2,50 +2,94 @@ from datetime import datetime
 import time
 from time import gmtime, strftime
 
+
 class PhDateTime:
-    
-    # format: https://docs.python.org/2/library/time.html#time.strftime
-    # exanple: %Y-%m-%d %H:%M:%S
-    def now(self, format):
-        return datetime.now().strftime(format)
 
-    def now1(self):
-        return datetime.now().strftime("%d-%m-%Y %H:%M:%S")
 
-    def now2(self):
-        return datetime.now().strftime("%d_%m_%Y_%H_%M_%S")
+    '''
+        Get current time. 
+        Format: https://docs.python.org/2/library/time.html#time.strftime
+        Usage: 
+            PhDateTime.now('%Y-%m-%d %H:%M:%S')
+            PhDateTime.now()
+    '''
+    def now(format_str = None):
+        if format_str is None:
+            return datetime.now().strftime('%a, %d %b %Y %H:%M:%S +0000')
+        else:
+            return datetime.now().strftime(format_str)
 
-    def epoch(self):
+
+
+    '''
+        Get current system epoch
+        Usage: PhDateTime.epoch()
+    '''
+    @staticmethod
+    def epoch():
         return int(time.time())
 
-    def epochToLocaltime(self, epoch):
-        return time.strftime("%a, %d %b %Y %H:%M:%S +0000", time.localtime(epoch))
+    '''
+        Convert epoch to format string
+        Usage: PhDateTime.epoch_to_local_time(epoch, "%d/%m/%Y %H:%m:%S")
+    '''
+    @staticmethod
+    def epoch_to_local_time(epoch, format_str=None):
 
-    def epochToGmttime(self, epoch):
-        return time.strftime("%a, %d %b %Y %H:%M:%S +0000", time.gmtime(epoch))
+        if  format_str is None:
+            return time.strftime("%a, %d %b %Y %H:%M:%S +0000", time.localtime(epoch))
+        else:
+            return time.strftime(format_str, time.localtime(epoch))
 
-    def timezone(self):
-        return strftime("%z", gmtime())
+    # def epochToGmttime(self, epoch):
+    #     return time.strftime("%a, %d %b %Y %H:%M:%S +0000", time.gmtime(epoch))
+    #
+    # def timezone(self):
+    #     return strftime("%z", gmtime())
+    #
+    # def timezoneOffset(self):
+    #     return time.tzname
 
-    def timezoneOffset(self):
-        return -time.timezone
-
-    def day(self):
+    '''
+        Usage: PhDateTime.day()
+    '''
+    @staticmethod
+    def day():
         return datetime.now().strftime("%d")
 
-    def month(self):
+    '''
+        Usage: PhDateTime.month()
+    '''
+    @staticmethod
+    def month():
         return datetime.now().strftime("%m")
 
-    def year(self):
+    '''
+        Usage: PhDateTime.year()
+    '''
+    @staticmethod
+    def year():
         return datetime.now().strftime("%Y")
 
-    def hour(self):
+    '''
+        Usage: PhDateTime.hour()
+    '''
+    @staticmethod
+    def hour():
         return datetime.now().strftime("%H")
 
-    def minute(self):
+    '''
+        Usage: PhDateTime.minute()
+    '''
+    @staticmethod
+    def minute():
         return datetime.now().strftime("%M")
 
-    def second(self):
+    '''
+        Usage: PhDateTime.second()
+    '''
+    @staticmethod
+    def second():
         return datetime.now().strftime("%S")
 
 

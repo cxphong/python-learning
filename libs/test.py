@@ -1,2 +1,6 @@
 from PhDateTime import PhDateTime
-from PhRandom import PhRandom
+
+time = PhDateTime()
+
+print(PhDateTime.epoch())
+print (PhDateTime.now('%d %m %Y %H %m %S'))
