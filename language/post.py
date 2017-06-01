@@ -8,7 +8,7 @@ URL = "https://trendcloud.net/alpha/index.php/apis/ControllerApisCheckVersion"
 PARAMS = {'device_version': 20}
  
 # sending get request and saving the response as response object
-r = requests.get(url = URL, params = PARAMS)
+r = requests.post(url = URL, params = PARAMS)
  
 # extracting data in json format
 data = r.json()

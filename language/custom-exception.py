@@ -6,5 +6,5 @@ class TestException(Exception):
 
 try:
 	raise TestException("Test error")
-except TestException,e:
+except TestException as e:
 	print (e.args)
